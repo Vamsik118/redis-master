@@ -19,12 +19,13 @@ services:
     command: redis-server /etc/sentinel.conf --sentinel
     network_mode: host
   redisinsight:        
-        image: 'redislabs/redisinsight:latest'
-       container_name: redis_insights
-        volumes:
-            - 'redisinsight:/db'
-        ports:
-            - '8001:8001'
+    image: 'redislabs/redisinsight:latest'
+    container_name: redis_insights
+    volumes:
+      - 'redisinsight:/db'
+    ports:
+      - '8001:8001'
+    network_mode: host
 volumes:
   redis-one-data:
     driver: local
